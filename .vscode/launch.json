@@ -1,0 +1,25 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        // {
+        //     "name": "Attach to Chrome",
+        //     "type": "chrome",
+        //     "request": "launch",
+        //     "url": "http://localhost:3000",
+        //     "webRoot": "${workspaceRoot}/src",
+        //     "runtimeExecutable": null
+        // }
+        {
+            "name": "Attach to Chrome, with sourcemaps",
+            "type": "chrome",
+            "request": "attach",
+            // "port": 9222,
+            "sourceMaps": true,
+            "webRoot": "${workspaceRoot}/src",
+            "url": "http://localhost:3000/",
+        }
+    ]
+}

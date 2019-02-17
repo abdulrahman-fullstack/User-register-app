@@ -1,0 +1,179 @@
+*{margin:0;padding:0;box-sizing: border-box; text-decoration: none}
+
+/* ---------   Loading style starts here     --------- */
+
+.Loading-screen{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+}
+.Loading-screen .loading-container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% , -50%);
+}
+.Loading-screen .loading-container:after{
+  content: '';
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left:0;
+  top:0;
+  transform: translate(-50% , -50%);
+  border-radius: 50%;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid rgbA(0, 119, 255 ,1);
+  animation: rotating 1s infinite;
+}
+
+@keyframes rotating{
+  0%{transform:  translate(-50% , -50%) rotateZ(0deg);}
+  100%{transform: translate(-50% , -50%) rotateZ(360deg) }
+}
+
+/* ---------   Loading style ends here     --------- */
+
+.users-container-loading{
+    width: 70%;
+    position: absolute;
+    right: 0;
+}
+.users-container.grid-view{
+    width: 70%;
+    padding:10px 30px;
+    position: absolute;
+    right: 0;display: grid;
+    grid-template-columns:repeat(2,1fr);
+    grid-gap: 20px;
+}
+.users-container.grid-view .btn-show-form{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    /* font-size: 40px; */
+    /* line-height: 15px; */
+    /* transform: scale(1); */
+    color: white;
+    padding: 14px 15px;
+    background: #0099cc;
+    border: none;
+    border-radius: 50%;
+    display: none;
+}
+.users-container.grid-view .btn-show-form:hover{
+    cursor: pointer;
+}
+.user{
+    padding: 15px;
+    border-radius: 10px;
+    position: relative;
+    background: rgba(79, 91, 101,1);
+    color: white;
+}
+.user::after{
+    content: '';
+    width: 20px;
+    position: absolute;
+}
+.user:hover > .actions{
+    opacity: 1;
+}
+.user > *{
+    margin: 5px;
+    font-size: 1.3em;
+    font-family: 'ubuntu',sans-serif;
+    color: inherit;
+}
+.user .name{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.user .userpage > a{
+    transition: all .2s;
+    color: inherit;
+    border-bottom: 1px groove white;
+}
+.user .userpage > a:hover{
+    background: #b9effe75;
+}
+.user .actions{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 80px;
+    height: 20px;
+    opacity: 0;
+    transition: all .3s;
+}
+.user .btn-edit , .btn-delete{
+    display: inline-block;
+    width: 20px;
+    height: inherit;
+    margin: 0 10px;
+    color: rgba(255, 255, 255, .5);
+    transition: all .3s;
+}
+.user .btn-edit:hover , .user .btn-delete:hover{
+    cursor: pointer;
+    color: white;
+}
+.user .btn-edit:focus , .user .btn-delete:focus{
+    color: white;
+}
+/*     Media queries starts here     */
+
+@media screen and (max-width:1024px){
+    .user > *{
+        font-size: 1em;
+    }
+    .user .name{
+        font-size: 1.3em;
+        font-weight: bold;
+    }
+}
+
+
+@media screen and (max-width:768px){
+    .users-container-loading {
+        width: 60%;
+    }
+    .users-container.grid-view{
+        width: 60%;
+        grid-template-columns:repeat(1,1fr);
+    }
+    .user > *{
+        font-size: 1.15em;
+    }
+}
+
+@media screen and (max-width:430px){
+    .users-container-loading {
+        width: 100%;
+    }   
+    .users-container.grid-view{
+        width: 100%;
+        z-index:1;
+        grid-template-columns:repeat(1,1fr);
+    }
+    .users-container.grid-view .btn-show-form{
+        display: block;
+    }
+    .user > *{
+        font-size: .8em;
+    }
+    .user .name{
+        font-size: 1em;
+        font-weight: bold;
+    }
+    .user .actions{
+        text-align: right;
+        opacity: 1;
+    }
+    .user .btn-edit , .btn-delete{
+        margin: 0 5px;
+    }
+}
+
+/*     Media queries ends here     */
